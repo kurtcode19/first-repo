@@ -63,7 +63,6 @@ ctk.set_default_color_theme("green")
 
 app = ctk.CTk()
 app.title("Campus Event Registration System")
-app.geometry("1920x1080")
 app.state("zoomed")
 # Menu bar (Tkinter)
 menubar = tk.Menu(app)
