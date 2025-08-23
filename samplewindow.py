@@ -1,4 +1,10 @@
 import customtkinter as ctk
+import tkinter as tk
+from tkinter import messagebox
+
+import sqlite3
+def on_card_click(event, event_name):
+    messagebox.showinfo("Event Clicked", f"You clicked on {event_name}")
 app = ctk.CTk()
 ctk.set_appearance_mode("light")
 ctk.set_default_color_theme("green")
@@ -18,6 +24,24 @@ frame_left.pack(side="left", fill="y", padx=10, pady=(0, 20))  # <-- bottom padd
 # Main frame with bottom padding
 frame_main = ctk.CTkFrame(app, corner_radius=10)
 frame_main.pack(expand=True, fill="both", padx=0, pady=(0, 20))  # <-- bottom padding 20
+event_list = [
+    {"name": "UI/UX Design Seminar", "date": "8/24/2025", "location": "Arts & Sciences Hall"},
+    {"name": "React for Beginners Workshop", "date": "8/28/2025", "location": "Room 404, Tech Building"},
+    {"name": "Annual Tech Summit 2024", "date": "9/11/2025", "location": "Main Auditorium"}
+]
+for event in event_list:
+    frame = ctk.CTkFrame(frame_main,git padx=10, pady=10)
+    frame.pack(padx=10, pady=5, fill='x')
+        # Event name
+    event_name = ctk.Label(frame_main, text=event['name'], font=('Arial', 14, 'bold'))
+    event_name.pack(side=ctk.TOP, anchor='w')
+    
+    # Event details
+    event_details = ctk.Label(frame_main, text=f"Date: {event['date']}\nLocation: {event['location']}")
+    event_details.pack(side=ctk.TOP, anchor='w')
+    
+    # Bind click event
+    frame.bind("<Button-1>", lambda e, name=event['name']: on_card_click(e, name))
 # Add widgets inside frames
 ctk.CTkLabel(frame_top, text="HEADER", font=("Arial", 18)).pack(pady=20,)
 ctk.CTkButton(frame_left, text="Menu 1").pack(pady=10, padx=10)
