@@ -44,7 +44,7 @@ for event in event_list:
     # Bind click event
     frame.bind("<Button-1>", lambda e, name=event['name']: on_card_click(e, name))
 # Add widgets inside frames
-ctk.CTkLabel(frame_top, text="HEADER", font=("Arial", 18)).pack(pady=20,)
+ctk.CTkLabel(frame_top, text="HEADER", font=("Poppins", 18,'bold')).pack(pady=20,)
 ctk.CTkButton(frame_left, text="Menu 1").pack(pady=10, padx=10)
 ctk.CTkLabel(frame_main, text="Main Content Area").pack(pady=20)
 app.mainloop()
